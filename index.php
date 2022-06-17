@@ -46,16 +46,20 @@ print_r($week);
 <?php
 
 $arr = [];
-for ($letter = 'a'; $letter <= 'z'; $letter++) {
+for ($letter = 'a'; $letter != 'aa'; $letter++) { // when "<= 'z'", it prints too much! *find out why.. // Thanks Glenn for the easy solution!!
     array_push($arr, $letter);
 }
+// array_push($arr, "z");
 
 print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical array
 
 
 ?>
 
+<?php
 
+
+?>
 
 
 
