@@ -58,8 +58,23 @@ print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical arra
 
 ?>
 
+
+<!-- 
+    .. functions are not getting called
+    .. "implode" returns an array as a string eg. implode("a","b,"c",d") => "abcd"
+    .. $heroes is undefined/not initialized
+    .. array_merge not correct?
+    .. rand(min, max) = random integer between min-max
+
+
+ -->
+
+
+
+
+
 <?php
-// echo "Exercise 6:";
+echo "Exercise 6:";
 // $arr = [];
 
 
@@ -82,19 +97,34 @@ print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical arra
 //     return $amount;
 // }
 
-// function randomHeroName()
-// {
-//     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
-//     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"]
-//     $heroes = array_merge($hero_firstnames, $hero_lastnames);
-//     $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+function randomHeroName()
+{
+    $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
+    $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
+    $heroes = array_merge($hero_firstnames, $hero_lastnames);
+    // $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
 
-//     echo $randname;
-// }
+    return $heroes;
+};
 
 // echo "Here is the name: " . combineNames();
 
+var_dump(randomHeroName());
+
+
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <?php
 echo "<br /><br />Exercise 7:";
@@ -121,7 +151,7 @@ function login(string $email, string $password) {
 
 //do not change anything below
 //should great the user with his full name (John Smith)
-echo login('john@example.be', 'pocahontas');
+echo login('john@example.be', 'pocahontas'); // passing 2 "arguments" (john@..., pocahontas) TO function's "parameters"
 //no access
 echo login('john@example.be', 'dfgidfgdfg');
 //no access
@@ -153,17 +183,18 @@ echo isLinkValid('http://google.com/test.txt');
 
 
 <?php
-// echo "Exercise 10:";
-// //Filter the array $areTheseFruits to only contain valid fruits
-// //do not change the arrays itself
-// $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
-// $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
-// //from here on you can change the code
+echo "Exercise 10:";
+//Filter the array $areTheseFruits to only contain valid fruits
+//do not change the arrays itself
+$areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
+$validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
+//from here on you can change the code
 // array_push($areTheseFruits, "");
-// for($i=0; $i <= count($areTheseFruits); $i++) {
-//     if(!in_array($areTheseFruits[$i], $validFruits)) {
-//         unset($areTheseFruits[$i]);
-//     }
-// }
-// var_dump($areTheseFruits);//do not change this
+for($i=0; $i <= count($areTheseFruits); $i++) {
+    if(!in_array($areTheseFruits[$i], $validFruits)) {
+        unset($areTheseFruits[$i]);
+    }
+}
+array_pop($areTheseFruits); // what is going on with last array value?
+var_dump($areTheseFruits);//do not change this
 ?>
