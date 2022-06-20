@@ -74,42 +74,32 @@ print_r($arr); // Array ([0] => a, [1] => b, [2] => c, ...) a-z alfabetical arra
 
 
 <?php
-echo "Exercise 6:";
-// $arr = [];
+echo "<br /><br />Exercise 6:";
 
+function combineNames($str1 = "", $str2 = "") {
+    $seperator = " - "; // added the seperator as variable
+    $params = [$str1, $str2];
+    foreach($params as &$param) {
+        if ($param == "") {
+            $param = randomHeroName();
+        }
+    }
+    return implode($seperator, $params); // implode = seperator first
+}
 
-// function combineNames($str1 = "", $str2 = "") {
-//     $params = [$str1, $str2];
-//     foreach($params as $param) {
-//         if ($param == "") {
-//             $param = randomHeroName();
-//         }
-//     }
-//     echo implode($params, " - ");
-// }
-
-
-// function randomGenerate($arr, $amount) {
-//     for ($i = $amount; $i > 0; $i--) {
-//         array_push($arr, randomHeroName());
-//     }
-
-//     return $amount;
-// }
 
 function randomHeroName()
 {
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
-    $heroes = array_merge($hero_firstnames, $hero_lastnames);
-    // $randname = $heroes[rand(0,count($heroes))][rand(0, 10)];
+    $heroes = [$hero_firstnames, $hero_lastnames];
+    $randname = $heroes[rand(0,count($heroes)-1)][rand(0, 10)];
 
-    return $heroes;
-};
-
-// echo "Here is the name: " . combineNames();
-
-var_dump(randomHeroName());
+    return $randname;
+}
+// $dudeName = combineNames();
+// echo ("Here is the name: $dudeName 123");
+echo "Here is the name: " . combineNames();
 
 
 ?>
@@ -133,7 +123,7 @@ function copyright($year) {
     return "&copy; $year BeCode";
 }
 //print the copyright
-print_r(copyright(date('Y')));
+print_r(copyright(date('Y')));      // convert to int >>> eg from Yasser :) $num = "3.14"; $int = (int)$num; $float = (float)$num;
 
 ?>
 
@@ -183,7 +173,7 @@ echo isLinkValid('http://google.com/test.txt');
 
 
 <?php
-echo "Exercise 10:";
+echo "<br /><br />Exercise 10:";
 //Filter the array $areTheseFruits to only contain valid fruits
 //do not change the arrays itself
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
